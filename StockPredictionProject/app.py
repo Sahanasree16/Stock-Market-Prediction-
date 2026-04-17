@@ -29,7 +29,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Enhanced Custom CSS for Better Text Visibility
+# Enhanced Custom CSS for Better Visibility
 st.markdown("""
 <style>
     /* Main container styling */
@@ -62,10 +62,10 @@ st.markdown("""
     
     /* Sidebar styling */
     .css-1d391kg, .stSidebar {
-        background-color: #ffffff;
+        background-color: #f0f2f6;
     }
     
-    /* Sidebar text */
+    /* Sidebar text - Dark color for visibility */
     .stSidebar .stMarkdown, 
     .stSidebar label, 
     .stSidebar p, 
@@ -79,44 +79,52 @@ st.markdown("""
         font-weight: 600 !important;
     }
     
-    /* Make selected values in selectbox white on blue background */
+    /* Sidebar selectbox styling */
+    .stSidebar .stSelectbox label {
+        color: #1e3c72 !important;
+        font-weight: 700 !important;
+        font-size: 1rem !important;
+    }
+    
     .stSidebar .stSelectbox div[data-baseweb="select"] {
-        background-color: #1e3c72 !important;
+        background-color: #ffffff !important;
         border-radius: 8px;
+        border: 2px solid #1e3c72 !important;
     }
     
     .stSidebar .stSelectbox div[data-baseweb="select"] div {
-        color: #ffffff !important;
+        color: #1e3c72 !important;
         font-weight: 600 !important;
     }
     
-    /* Make dropdown options white when selected */
-    .stSidebar .stSelectbox ul li[aria-selected="true"] {
-        background-color: #2a5298 !important;
-        color: #ffffff !important;
+    /* Sidebar checkbox styling */
+    .stSidebar .stCheckbox label {
+        color: #1e3c72 !important;
+        font-weight: 600 !important;
+        font-size: 0.95rem !important;
     }
     
     /* Sidebar info box */
     .stSidebar .stAlert {
-        background-color: #e8f0fe;
-        color: #1e3c72 !important;
+        background-color: #1e3c72 !important;
+        color: #ffffff !important;
     }
     
-    /* Sidebar checkbox labels */
-    .stSidebar .stCheckbox label {
-        color: #1e3c72 !important;
-        font-weight: 500 !important;
+    .stSidebar .stAlert p {
+        color: #ffffff !important;
     }
     
-    /* Button styling - white text */
+    /* Button styling */
     .stButton > button {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         color: #ffffff !important;
         border: none;
-        padding: 0.6rem 1.2rem;
+        padding: 0.8rem 1.5rem;
         border-radius: 10px;
         font-weight: 700;
+        font-size: 1rem;
         transition: all 0.3s;
+        width: 100%;
     }
     
     .stButton > button:hover {
@@ -156,40 +164,44 @@ st.markdown("""
         margin-top: 0.5rem;
     }
     
-    /* Tab styling */
+    /* Tab styling - IMPROVED VISIBILITY */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 2rem;
+        gap: 0.5rem;
         background: white;
         padding: 0.5rem;
         border-radius: 15px;
         box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        flex-wrap: wrap;
     }
     
     .stTabs [data-baseweb="tab"] {
-        color: #2c3e50 !important;
+        color: #1e3c72 !important;
         font-weight: 700;
-        font-size: 1rem;
-        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
         border-radius: 10px;
         transition: all 0.3s;
-        background-color: transparent;
+        background-color: #f0f2f6;
+        border: 1px solid #c8d0dc;
+        margin: 0.2rem;
     }
     
     .stTabs [data-baseweb="tab"]:hover {
+        background-color: #e0e7f0;
         color: #1e3c72 !important;
-        background: #f0f2f6;
     }
     
     .stTabs [aria-selected="true"] {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%) !important;
         color: #ffffff !important;
+        border: none;
     }
     
     .stTabs [aria-selected="true"] button {
         color: #ffffff !important;
     }
     
-    /* Prediction cards - ALL TEXT WHITE */
+    /* Prediction cards */
     .prediction-card {
         background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
         padding: 1.5rem;
@@ -212,7 +224,7 @@ st.markdown("""
         padding: 1rem;
         border-radius: 12px;
         margin: 0.5rem 0;
-        border: 2px solid #e0e0e0;
+        border: 2px solid #1e3c72;
         transition: all 0.3s;
         box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
@@ -220,6 +232,7 @@ st.markdown("""
     .model-card:hover {
         border-color: #2a5298;
         box-shadow: 0 4px 12px rgba(26, 60, 114, 0.1);
+        transform: translateY(-2px);
     }
     
     .model-card h4 {
@@ -320,7 +333,7 @@ st.markdown("""
     /* Input fields */
     .stTextInput > div > div > input {
         border-radius: 10px;
-        border: 1px solid #e0e0e0;
+        border: 2px solid #1e3c72;
         padding: 0.5rem 1rem;
         color: #000000 !important;
         font-weight: 500;
@@ -396,25 +409,10 @@ st.markdown("""
         box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     
-    /* Make stock names in dropdown white */
-    .stSelectbox ul li {
-        color: #000000 !important;
-    }
-    
     /* Make all text in login page white on blue background */
     .main-header .stMarkdown, 
     .main-header p, 
     .main-header h1 {
-        color: #ffffff !important;
-    }
-    
-    /* Stock names in sidebar dropdown - make them white when selected */
-    .stSidebar .stSelectbox div[data-baseweb="select"] div {
-        color: #ffffff !important;
-    }
-    
-    /* Make all prediction card text white */
-    div[data-testid="stMarkdownContainer"] .prediction-card {
         color: #ffffff !important;
     }
 </style>
@@ -525,6 +523,11 @@ class AdvancedStockPredictor:
         """Train only selected ML models"""
         try:
             X, y, df_features, feature_cols = self.prepare_features(self.data)
+            
+            # Check if we have enough data
+            if len(X) < 10:
+                st.error(f"Not enough data samples ({len(X)}) for training. Please select a longer period (3 months or more).")
+                return None, None, None
             
             # Split data
             split_idx = int(len(X) * 0.8)
@@ -693,12 +696,14 @@ def create_prediction_comparison(results, dates, y_test):
     
     # Add predictions from each model
     colors = ['#1e3c72', '#2a5298', '#4a6fa5', '#6c8cbf', '#8fa9d9', '#b2c6f2']
-    for i, (model_name, result) in enumerate(results.items()):
+    i = 0
+    for model_name, result in results.items():
         if model_name != 'features':
             fig.add_trace(go.Scatter(x=dates, y=result['predictions'], 
                                     name=model_name,
                                     line=dict(color=colors[i % len(colors)], 
                                              width=2, dash='dash')))
+            i += 1
     
     fig.update_layout(title='Model Predictions Comparison',
                      xaxis_title='Date',
@@ -748,12 +753,12 @@ def generate_trading_recommendation(results, current_price):
     for model_name, result in results.items():
         if model_name != 'features' and 'next_day' in result:
             pred_change = ((result['next_day'] - current_price) / current_price) * 100
-            # Weight by R² score
-            weight = max(0, result['r2'])
+            # Weight by R² score (ensure positive weight)
+            weight = max(0.01, result['r2'])  # Minimum weight of 0.01 to avoid zero sum
             recommendations.append(pred_change)
             weights.append(weight)
     
-    if recommendations:
+    if recommendations and sum(weights) > 0:
         # Weighted average prediction
         weighted_pred_change = np.average(recommendations, weights=weights)
         
@@ -836,10 +841,7 @@ def login_page():
         
         st.markdown('</div>', unsafe_allow_html=True)
         
-        st.markdown("---")
-        st.markdown("### 📌 Demo Credentials")
-        st.markdown("**Username:** sahanasree | **Password:** 123")
-        st.markdown("**Username:** Sahanasree | **Password:** Sahana")
+        
 
 def main_app():
     """Main application after authentication"""
@@ -898,8 +900,8 @@ def main_app():
         
         period = st.selectbox(
             "Analysis Period",
-            ["1mo", "3mo", "6mo", "1y", "2y", "5y"],
-            index=3
+            ["3mo", "6mo", "1y", "2y", "5y"],
+            index=2
         )
         
         st.markdown("---")
@@ -967,7 +969,7 @@ def main_app():
                         st.session_state['y_test'] = y_test
                         st.success(f"✅ {len(selected_models)} models trained successfully!")
                     else:
-                        st.error("❌ Model training failed")
+                        st.error("❌ Model training failed. Please try with more data (3 months or longer).")
             else:
                 st.error(f"❌ No data found for ticker {ticker}")
                 return
@@ -1020,10 +1022,10 @@ def main_app():
             </div>
             """, unsafe_allow_html=True)
         
-        # Tabs with updated names
+        # Tabs with updated names - IMPROVED VISIBILITY
         tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-            "📊 Dashboard", "📈 Technical Analysis", "🤖 Model Insights", 
-            "🔮 Price Forecast", "📉 Risk Analytics", "🏆 Performance Summary"
+            "📊 DASHBOARD", "📈 TECHNICAL", "🤖 MODELS", 
+            "🔮 FORECAST", "📉 RISK", "🏆 SUMMARY"
         ])
         
         # Tab 1: Dashboard
@@ -1321,9 +1323,7 @@ def main_app():
                     <p style="color: #856404; margin: 0;">
                         This dashboard provides predictions based on historical data and machine learning models. 
                         Past performance does not guarantee future results. Always conduct your own research and 
-                        consult with financial advisors before making investment decisions. The predictions are 
-                        for educational purposes only.
-                    </p>
+                        consult with financial advisors before making investment decisions. 
                 </div>
                 """, unsafe_allow_html=True)
     
